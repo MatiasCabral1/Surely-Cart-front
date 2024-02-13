@@ -1,0 +1,6 @@
+.navbar-brand + p {
+    color: white; /* Color del texto */
+    margin: 0; /* Eliminar el margen predeterminado */
+    font-size: 20px; /* Tamaño de fuente */
+    margin-right: 10px; /* Margen derecho */
+  }

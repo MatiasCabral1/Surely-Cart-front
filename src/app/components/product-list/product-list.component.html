@@ -1,0 +1,35 @@
+<div *ngIf="cartStatus == false; else cartIsCreated" class="text-center"> 
+    <div class="mb-4 mt-4">
+        <h2 class="text-center">Bienvenido a Surely-Cart</h2>
+        <span>Para ver los productos debe iniciar una compra</span>
+    </div>
+    <button class="btn btn-primary" (click)="createCart()">
+        Iniciar compra
+    </button>
+</div>
+
+<ng-template #cartIsCreated>
+    <div class="container mt-3">
+        <div class="mb-4">
+            <h2 class="text-center">Listado de productos</h2>
+        </div>
+        <div *ngIf="products.length > 0; else noProducts">
+            <div class="row text-center" >
+                <div class="col-md-4" *ngFor="let product of products">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ product.name }}</h3>
+                            <p class="card-text">Precio: {{ formatPrice(product.price) }}</p>
+                            <p class="card-text">Stock: {{ product.stock }}</p>
+                            <p class="card-text">Categoría: {{ product.productCategory }}</p>
+                            <button class="btn btn-primary" (click)="addToCart(product)">Agregar al Carrito</button> <!-- Botón para agregar al carrito -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template #noProducts>
+            <p>No products available</p>
+        </ng-template>
+    </div>
+</ng-template>

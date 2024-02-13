@@ -1,0 +1,64 @@
+<div class="container text-center">
+  <h2 class="text-center m-4">Detalle del Carrito</h2>
+  <div
+    *ngIf="cart && cart.cartItems && cart.cartItems.length > 0; else noProducts"
+  >
+    <div *ngFor="let item of cart.cartItems" class="card mb-3">
+      <div
+        class="card-body d-flex justify-content-between align-items-center text-left"
+      >
+        <div>
+          <h5 class="d-flex align-items-left">{{ item.product.name }}</h5>
+          <p class="d-flex align-items-left">
+            Precio: {{ formatPrice(item.product.price) }}
+          </p>
+          <p class="d-flex align-items-left">
+            Cantidad: {{ item.numberOfProducts }}
+          </p>
+        </div>
+        <div class="d-flex align-items-center">
+          <input
+            type="number"
+            [(ngModel)]="item.quantity"
+            class="form-control form-control-sm w-50"
+            [min]="1"
+            value="item.quantity"
+          />
+          <button
+            id="add"
+            class="btn btn-sm btn-success ml-2"
+            (click)="addToCart(cart.id, item.product.id, item.quantity)"
+          >
+            Agregar al carrito
+          </button>
+        </div>
+        <button
+          id="sub"
+          class="btn btn-sm btn-danger"
+          (click)="removeFromCart(cart.id, item.product.id)"
+        >
+          Eliminar producto
+        </button>
+      </div>
+    </div>
+    <h3>Total: {{ formatPrice(cart.price) }}</h3>
+    <div class="text-center">
+      <button class="btn btn-success mr-2" (click)="payCart()">
+        Pagar Carrito
+      </button>
+    </div>
+    <div class="button-cancel text-center">
+      <button class="btn btn-danger m-3" (click)="deleteCart()">
+        Cancelar Compra
+      </button>
+    </div>
+  </div>
+  <ng-template #noProducts>
+    <p>No hay productos en el carrito</p>
+    <div class="button-cancel text-center">
+      <a class="btn btn-primary mt-3" [routerLink]="['/productList']">
+        Ir a productos
+      </a>
+    </div>
+  </ng-template>
+</div>

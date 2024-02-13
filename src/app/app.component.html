@@ -1,0 +1,17 @@
+<app-nav-bar></app-nav-bar>
+
+<div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show align-items-center" role="alert">
+    <button type="button" class="btn btn-link " (click)="closeErrorMessage()">
+      <i class="fas fa-times"></i>
+    </button>
+    <span class="text-center d-flex justify-content-center">{{ errorMessage }}</span>
+</div>
+
+<div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show align-items-center" role="alert">
+  <button type="button" class="btn btn-link" (click)="closeSuccessMessage()">
+    <i class="fas fa-times"></i>
+  </button>
+    <span class="text-center d-flex justify-content-center">{{ successMessage }}</span>
+</div>
+
+<router-outlet></router-outlet>

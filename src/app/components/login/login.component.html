@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="login-container">
+    <div class="m-4">
+      <h2>Iniciar sesión</h2>
+    </div>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="documentNumber m-3">Numero de documento:</label>
+        <input
+          type="text"
+          class="form-control mt-3"
+          id="documentNumber"
+          name="documentNumber"
+          [(ngModel)]="documentNumber"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+      <a href="#">Registrarse</a>
+    </form>
+  </div>
+</div>
