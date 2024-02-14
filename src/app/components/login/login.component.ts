@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user/User';
@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   documentNumber: string = '';
 
   constructor(
@@ -19,6 +19,15 @@ export class LoginComponent {
     private cartUtils: CartUtilsService,
     private authService: AuthService
   ) {}
+  ngOnInit(): void {
+    this.authService.isLoggedIn.subscribe(
+      data => {
+         if (data){
+          this.router.navigate(['/productList']);
+         }
+      }
+    )
+  }
 
   onSubmit(): void {
     this.userService.login(this.documentNumber).subscribe(

@@ -47,6 +47,7 @@ export class CartComponent {
           this.cartUtilsService.handleSuccess(
             'Se efectuó el pago correctamente.'
           );
+          this.cartUtilsService.clearCart();
           this.cart = {};
         } else {
           console.log(error);
