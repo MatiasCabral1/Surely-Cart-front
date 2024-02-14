@@ -13,7 +13,7 @@
     <a *ngIf="!loggedIn" class="navbar-brand mr-auto" href="/login"
       >Surely-Shop</a
     >
-    <p>Bienvenido: {{documentNumber}}</p>
+    <p *ngIf="loggedIn">Bienvenido - {{documentNumber}}</p>
     <button
       class="navbar-toggler"
       type="button"
