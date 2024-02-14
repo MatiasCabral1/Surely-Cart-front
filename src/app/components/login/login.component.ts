@@ -25,7 +25,7 @@ export class LoginComponent {
       (data: User) => {
         this.authService.login(data.documentNumber);
         this.cartUtils.handleSuccess('Sesion iniciada.');
-        this.router.navigate(['/']);
+        this.router.navigate(['/productList']);
       },
       (error) => {
         this.cartUtils.handleError(error);

@@ -9,7 +9,7 @@
 </head>
 <header class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a *ngIf="loggedIn" class="navbar-brand mr-auto" href="#">Surely-Shop</a>
+    <a *ngIf="loggedIn" class="navbar-brand mr-auto" href="/productList">Surely-Shop</a>
     <a *ngIf="!loggedIn" class="navbar-brand mr-auto" href="/login"
       >Surely-Shop</a
     >
@@ -28,7 +28,7 @@
     <div id="navbarNav" *ngIf="loggedIn">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Productos</a>
+          <a class="nav-link" href="/productList">Productos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/history">Top 4 compras</a>
