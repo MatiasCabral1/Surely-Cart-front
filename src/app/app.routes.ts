@@ -6,7 +6,7 @@ import { HistoryComponent } from './components/history/history.component';
 
 export const routes: Routes = [
     { path: 'productList', component: ProductListComponent },
-    { path: '', redirectTo: '/productList', pathMatch: 'full' },
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'cart', component: CartComponent },
     { path: 'login', component: LoginComponent },
     { path: 'history', component: HistoryComponent },
